@@ -1,0 +1,130 @@
+
+:root 
+{
+  --hintergrund: #faf7f2;
+  --karte: #ffffff;
+  --text: #2b2622;
+  --text-hell: #6e655c;
+  --akzent: #7a4b2a;
+  --akzent-hover: #5e3a20;
+  --rand: #e4dccf;
+  --gut: #2f7d4f;
+  --schlecht: #b33a3a;
+  --radius: 10px;
+  --eingabe: #ffffff;
+  --platzhalter: #efe4d2;
+  --knopf-text: #ffffff;
+  --fehler-bg: #fbeaea;
+  --fehler-text: #8a2a2a;
+  --fehler-rand: #efc4c4;
+}
+
+/* Design-Modus Dunkel */
+:root[data-theme="dunkel"] 
+{
+  --hintergrund: #14120f;
+  --karte: #1f1b17;
+  --text: #efe8dd;
+  --text-hell: #a89d8f;
+  --akzent: #d9a066;
+  --akzent-hover: #e8b47d;
+  --rand: #35302a;
+  --schlecht: #c94f4f;
+  --eingabe: #2a2520;
+  --platzhalter: #2d2620;
+  --knopf-text: #1a1410;
+  --fehler-bg: #3a1f1f;
+  --fehler-text: #f0b4b4;
+  --fehler-rand: #6b3434;
+}
+
+/* Design-Modus Pink */
+:root[data-theme="pink"] 
+{
+  --hintergrund: #fff0f6;
+  --karte: #ffffff;
+  --text: #3b1f2e;
+  --text-hell: #8a5d73;
+  --akzent: #d6336c;
+  --akzent-hover: #b02556;
+  --rand: #f4c6da;
+  --platzhalter: #fde0ec;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; background: var(--hintergrund); color: var(--text); line-height: 1.5; }
+.inhalt { max-width: 1050px; margin: 0 auto; padding: 0 20px; }
+main.inhalt { padding-top: 24px; padding-bottom: 48px; min-height: 70vh; }
+a { color: var(--akzent); }
+h1 { font-size: 1.7rem; margin: 0 0 16px; }
+h2 { font-size: 1.1rem; margin: 22px 0 6px; }
+
+.kopf { background: var(--karte); border-bottom: 1px solid var(--rand); }
+.kopf-innen { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+.logo { font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--akzent); }
+.kopf nav { display: flex; gap: 18px; align-items: center; }
+.kopf select { padding: 4px 8px; font-size: .85rem; }
+.kopf nav a { text-decoration: none; font-weight: 500; }
+.kopf nav a:hover { text-decoration: underline; }
+.nutzer { color: var(--text-hell); font-size: .9rem; }
+.fuss { text-align: center; color: var(--text-hell); font-size: .85rem; padding: 20px; }
+
+.karte { background: var(--karte); border: 1px solid var(--rand); border-radius: var(--radius); padding: 24px; }
+.schmal { max-width: 420px; margin: 40px auto; }
+.klein { font-size: .9rem; color: var(--text-hell); }
+.zahl { font-size: .9rem; font-weight: 400; color: var(--text-hell); margin-left: 8px; }
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; font-weight: 500; }
+input, select, textarea { font: inherit; padding: 9px 11px; border: 1px solid var(--rand); border-radius: 8px; background: var(--eingabe); color: var(--text); }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--akzent); outline-offset: 0; border-color: var(--akzent); }
+.zweispaltig { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.zweispaltig .breit { grid-column: 1 / -1; }
+
+.knopf { display: inline-block; background: var(--akzent); color: var(--knopf-text); border: 0; border-radius: 8px; padding: 10px 18px; font: inherit; font-weight: 500; cursor: pointer; text-decoration: none; }
+.knopf:hover { background: var(--akzent-hover); }
+.knopf.hell { background: transparent; color: var(--akzent); border: 1px solid var(--rand); }
+.knopf.hell:hover { background: var(--hintergrund); }
+.knopf.gefahr { background: var(--schlecht); color: #fff; }
+.aktionen { display: flex; gap: 10px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+.fehler { background: var(--fehler-bg); color: var(--fehler-text); border: 1px solid var(--fehler-rand); border-radius: 8px; padding: 8px 12px; margin: 0 0 10px; }
+
+.reiter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.reiter a { padding: 7px 14px; border-radius: 999px; background: var(--karte); border: 1px solid var(--rand); text-decoration: none; color: var(--text); font-size: .9rem; }
+.reiter a.aktiv { background: var(--akzent); border-color: var(--akzent); color: var(--knopf-text); }
+.suche { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; align-items: center; }
+.suche input[type=search] { flex: 1 1 240px; }
+.zuruecksetzen { font-size: .9rem; }
+
+.raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; }
+.buchkarte { background: var(--karte); border: 1px solid var(--rand); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s; }
+.buchkarte:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(60, 40, 20, .12); }
+.cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: var(--rand); }
+.platzhalter { display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 700; color: var(--akzent); background: var(--platzhalter); }
+.buchinfo { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 3px; align-items: flex-start; }
+.titel { line-height: 1.25; }
+.autor { color: var(--text-hell); font-size: .88rem; }
+.sterne { color: #c98a1b; letter-spacing: 1px; font-size: .95rem; }
+.sterne.gross { font-size: 1.3rem; }
+.gemocht { font-size: .85rem; color: var(--text-hell); }
+.badge { font-size: .75rem; padding: 2px 9px; border-radius: 999px; font-weight: 500; }
+.status-moechte_lesen { background: #e7eef8; color: #2d4f80; }
+.status-lese_gerade   { background: #fdf0d6; color: #7a5410; }
+.status-gelesen       { background: #dff1e5; color: #1f5c38; }
+.status-abgebrochen   { background: #f4e0e0; color: #7d2e2e; }
+.leer { text-align: center; padding: 48px 20px; color: var(--text-hell); }
+
+.detail { display: grid; grid-template-columns: 240px 1fr; gap: 28px; }
+.cover.gross { border-radius: 8px; }
+.detail h1 { margin-bottom: 2px; }
+.daten { display: grid; grid-template-columns: 110px 1fr; gap: 4px 10px; margin: 14px 0; }
+.daten dt { color: var(--text-hell); }
+.daten dd { margin: 0; }
+.text { margin: 0; white-space: normal; }
+
+@media (max-width: 700px) 
+{
+  .zweispaltig, .detail { grid-template-columns: 1fr; }
+  .detail .cover.gross { max-width: 220px; }
+  .kopf-innen { flex-wrap: wrap; height: auto; padding: 10px 20px; gap: 6px; }
+}
+.sterne.unbewertet { color: var(--text-hell); letter-spacing: 0; font-size: .85rem; }
