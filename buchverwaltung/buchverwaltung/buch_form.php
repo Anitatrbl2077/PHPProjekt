@@ -2,6 +2,7 @@
 // Gemeinsames Formular für "Buch hinzufügen" und "Buch bearbeiten"
 //$w (Werte), $fehler (Liste), $genres, $knopf (Beschriftung)
 ?>
+
 <?php foreach ($fehler as $f): ?><p class="fehler"><?= e($f) ?></p><?php endforeach; ?>
 <form method="post" class="form zweispaltig">
   <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">

@@ -1,4 +1,4 @@
-Demo-Benutzer zum Ausprobieren (Login: demo / Passwort: demo1234)
+-- Optional: Demo-Benutzer zum Ausprobieren (Login: demo / Passwort: demo1234)
 SET NAMES utf8mb4;
 USE buchverwaltung;
 INSERT INTO benutzer (benutzername, email, passwort_hash) VALUES ('demo', 'demo@example.com', '$2y$10$dXLvd4kLg6lKePmUgHIq.OiiZzwc5y.soSHWPA2spr9Hdwbx0IB1m');

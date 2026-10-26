@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $name = trim($_POST['benutzername'] ?? '');
     $pw   = $_POST['passwort'] ?? '';
 
-    // Anmeldung mit Benutzername ODER E-Mail
+    // Anmeldung mit Benutzername oder E-Mail
     $st = $pdo->prepare('SELECT id, benutzername, passwort_hash FROM benutzer WHERE benutzername = :n OR email = :e');
     $st->execute(['n' => $name, 'e' => $name]);
     $nutzer = $st->fetch();
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         header('Location: bibliothek.php');
         exit;
     }
-    $fehler = 'Benutzername oder Passwort ist falsch.';   // bewusst allgemein
+    $fehler = 'Benutzername oder Passwort ist falsch.';   
 }
 
 $seitentitel = 'Anmelden';

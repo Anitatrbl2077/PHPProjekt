@@ -27,24 +27,33 @@ if (array_key_exists($status, STATUS))
 {
     $sql .= ' AND b.status = :status';
     $params['status'] = $status;
-} else {
+} 
+else 
+{
     $status = '';
 }
+
 if ($genreId !== '' && ctype_digit($genreId)) 
 {
     $sql .= ' AND b.genre_id = :genre';
     $params['genre'] = $genreId;
-} else {
+} 
+else 
+{
     $genreId = '';
 }
+
 
 if ($gemocht === '1' || $gemocht === '0') 
 {
     $sql .= ' AND b.gemocht = :gemocht';
     $params['gemocht'] = $gemocht;
-} else {
+} 
+else 
+{
     $gemocht = '';
 }
+
 $sql .= ' ORDER BY b.titel';
 
 $st = $pdo->prepare($sql);

@@ -8,6 +8,7 @@ $uid = $_SESSION['benutzer_id'];
 $st = $pdo->prepare('SELECT * FROM buch WHERE id = :id AND benutzer_id = :uid');
 $st->execute(['id' => $id, 'uid' => $uid]);
 $buch = $st->fetch();
+
 if (!$buch) 
 {
     http_response_code(404);
@@ -18,7 +19,7 @@ $fehler = [];
 $w = $buch;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-    {
+{
     csrf_pruefen();
     [$d, $fehler] = buch_pruefen($pdo, $_POST);
     $w = $_POST;
